@@ -1,0 +1,20 @@
+<!-- 네비게이션 바 (모든 페이지 공통, base.html에서 include) -->
+<!-- active_nav 변수로 현재 페이지의 메뉴를 활성화 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'single_page:landing' %}">용규의 웹사이트</a> <!-- 홈으로 이동 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span> <!-- 모바일 햄버거 메뉴 아이콘 -->
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto"> <!-- ms-auto: 오른쪽 정렬 -->
+                <li class="nav-item">
+                    <a class="nav-link {% if active_nav == 'blog' %}active{% endif %}" href="{% url 'blog:index' %}">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_nav == 'about' %}active{% endif %}" href="{% url 'single_page:about_me' %}">About Me</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

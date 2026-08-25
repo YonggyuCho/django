@@ -1,0 +1,14 @@
+{% extends 'base.html' %} <!-- base.html 템플릿 상속 -->
+
+{% block title %}용규의 웹사이트{% endblock %}
+
+{% block content %}
+    <!-- 메인 콘텐츠: 화면 중앙 정렬 (vh 단위로 높이 채움) -->
+    <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 56px);">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold">용규의 웹사이트</h1> <!-- display-4: 큰 제목 스타일 -->
+            <p class="lead text-muted mb-4">환영합니다.</p> <!-- lead: 본문보다 약간 큰 텍스트 -->
+            <a href="{% url 'blog:index' %}" class="btn btn-success btn-lg">블로그 바로가기</a> <!-- btn-lg: 큰 버튼 -->
+        </div>
+    </div>
+{% endblock %}

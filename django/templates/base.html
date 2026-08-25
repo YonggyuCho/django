@@ -1,0 +1,27 @@
+{% load static %} <!-- Django 정적파일 태그 로드 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}용규의 웹사이트{% endblock %}</title> <!-- 각 페이지에서 title 블록을 오버라이드 -->
+    <!-- Bootstrap 5 정적파일 -->
+    <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %} <!-- 각 페이지에서 추가 CSS가 필요할 때 사용 -->
+</head>
+<body class="d-flex flex-column min-vh-100"> <!-- flex column + 최소 높이 100vh: 푸터를 하단에 고정 -->
+
+    <!-- 네비게이션 바 (navbar.html에서 분리, include로 삽입) -->
+    {% include 'navbar.html' %}
+
+    <!-- 메인 콘텐츠 영역 (각 페이지에서 오버라이드) -->
+    {% block content %}{% endblock %}
+
+    <!-- 푸터 (footer.html에서 분리, include로 삽입) -->
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS (navbar 토글 등에 필요) -->
+    <script src="{% static 'blog/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    {% block extra_js %}{% endblock %} <!-- 각 페이지에서 추가 JS가 필요할 때 사용 -->
+</body>
+</html>
